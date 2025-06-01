@@ -100,6 +100,25 @@ const drawGrid = () => {
     }
 }
 
+const checkEat = () => {
+
+    const head = snake[snake.length -1]
+    if (head.x == food.x && head.y == food.y) {
+        snake.push(head)
+        let x = randomPosisiton()
+        let y = randomPosisiton()
+
+        while (snake.find((position) => position.x == x && position.y == y)){
+            x = randomPosisiton()
+            y = randomPosisiton()
+        }
+
+        food.x = x
+        food.y = y
+        food.color = AppleColor()
+    }
+
+}
 
 const play = () => {
 clearInterval(loopID) 
@@ -108,6 +127,8 @@ drawGrid()
 drawFood()
 moveSnake()
 drawSnake()
+checkEat()
+
     loopID = setTimeout(()=> {
     play()
     }, 300)
