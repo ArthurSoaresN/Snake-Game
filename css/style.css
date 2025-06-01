@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", consolas, monospace;
+}
+
+body {
+    background-color: rgb(0, 119, 0);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    flex-direction: column;
+}
+
+canvas {
+    background-color: rgba(92, 255, 92, 0.89);
+}
