@@ -124,6 +124,24 @@ const checkEat = () => {
 
 }
 
+checkCollision = () => {
+    const head = snake[snake.length -1]
+
+    const selfCollision = snake.find((position, index) => {
+        return index < snake.length - 2 && position.x == head.x && position.y == head.y
+    })
+
+    if ((head.x < 0 || head.x > canvas.width - size || 
+        head.y < 0 || head.y > canvas.width - size) ||
+        (selfCollision)) {
+          alert("Game Over")  
+        }
+}
+
+
+
+
+
 const play = () => {
 clearInterval(loopID) 
 ctx.clearRect(0, 0, 600, 600)
@@ -132,6 +150,7 @@ drawFood()
 moveSnake()
 drawSnake()
 checkEat()
+checkCollision()
 
     loopID = setTimeout(()=> {
     play()
