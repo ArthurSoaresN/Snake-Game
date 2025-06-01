@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", consolas, monospace;
+    font-family: "Press Start 2P", "Arial", sans-serif;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
 }
 
 canvas {
-    background-color: #118611;
+    background-color: #197926;
 }
 
 .score {
@@ -33,11 +33,12 @@ canvas {
     margin-top: -10px;
 }
 
-.manu-scree {
+.menu-screen {
     position: absolute;
     display: none;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 .game-over {
@@ -57,12 +58,17 @@ canvas {
     padding: 10px 15px 10px 12px;
     font-size: 1rem;
     font-weight: 600;
-    color: #333;
+    color: #000000;
     margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    cursor: pointer;
+        cursor: pointer;
+    }
+    
+    .btn-play:hover {
+        background-color: #e9e9e9;
+        color: rgba(0, 0, 0, 0.103);
     
 }

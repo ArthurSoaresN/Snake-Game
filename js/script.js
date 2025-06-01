@@ -10,10 +10,14 @@ const audio = new Audio('../assets/eat.wav')
 
 const size = 30
 
-const snake = [
+let snake = [
     {x: 270, y :240},
     {x: 270+size, y :240}
 ]
+
+const incrementScore = () => {
+    score.innerText = parseInt(score.innerText) + 1
+}
 
 const randomNumber = (min, max) => {
     return Math.round(Math.random() * (max - min) + min)
@@ -111,6 +115,7 @@ const checkEat = () => {
 
     const head = snake[snake.length -1]
     if (head.x == food.x && head.y == food.y) {
+        incrementScore()
         snake.push(head)
         audio.play()
         let x = randomPosisiton()
@@ -144,6 +149,10 @@ checkCollision = () => {
 
 const gameOver = () => {
     direction = undefined
+
+    menu.style.display = "flex"
+    finalScore.innerText = score.innerText
+    canvas.style.filter = "blur(4px)"
 }
 
 
@@ -182,5 +191,17 @@ document.addEventListener("keydown", ({key}) => {
     if ((key == "ArrowUp" || key == "w") && direction != "down") {
         direction = "up"
     }
+
+})
+
+buttonPlay.addEventListener("click", ()=> {
+    score.innerText = "0"
+    menu.style.display = "none"
+    canvas.style.filter = "none"
+
+    snake = [
+    {x: 270, y :240},
+    {x: 270+size, y :240}
+    ]
 
 })
