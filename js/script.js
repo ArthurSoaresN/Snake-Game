@@ -12,14 +12,10 @@ let direction, loopID
 
 const drawSnake = () => {
     ctx.fillStyle = "#836FFF"
-
-    
     snake.forEach( (position, index) => {
-
         if (index == snake.length - 1) {
             ctx.fillStyle = "#6959CD"
         }
-
         ctx.fillRect(position.x, position.y, size, size)
     }
     
@@ -51,9 +47,30 @@ const moveSnake = () => {
     snake.shift()
 }
 
+//"#98FB98"
+const drawGrid = () => {
+    ctx.lineWidth = 1
+    ctx.strokeStyle = "#98FB98"
+
+    for (let i = 30; i < canvas.width; i += 30) {
+        ctx.beginPath()
+        ctx.lineTo(i,0)
+        ctx.lineTo(i, 600)
+        ctx.stroke()
+
+        ctx.beginPath()
+        ctx.lineTo(0,i)
+        ctx.lineTo(600, i)
+        ctx.stroke()
+    }
+}
+
+
 const play = () => {
-clearInterval(loopID)
+drawGrid()
+clearInterval(loopID) 
 ctx.clearRect(0, 0, 600, 600)
+drawGrid() 
 moveSnake()
 drawSnake()
     loopID = setTimeout(()=> {
