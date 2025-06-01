@@ -7,7 +7,6 @@ const buttonPlay = document.querySelector(".btn-play")
 
 const audio = new Audio('../assets/eat.wav')
 
-
 const size = 30
 
 let snake = [
@@ -154,8 +153,6 @@ const gameOver = () => {
     finalScore.innerText = score.innerText
     canvas.style.filter = "blur(4px)"
 }
-
-
 
 const play = () => {
 clearInterval(loopID) 
