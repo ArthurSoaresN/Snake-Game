@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: rgb(0, 119, 0);
+    background-color: #001f04;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -16,5 +16,5 @@ body {
 }
 
 canvas {
-    background-color: rgba(35, 189, 35, 0.89);
+    background-color: #118611;
 }

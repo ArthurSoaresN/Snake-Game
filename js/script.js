@@ -8,7 +8,42 @@ const snake = [
     {x: 270+size, y :240}
 ]
 
+const randomNumber = (min, max) => {
+    return Math.round(Math.random() * (max - min) + min)
+}
+
+const randomPosisiton = () => {
+    const number = randomNumber(0 , canvas.width - size)
+    return Math.round(number/30) * 30
+}
+
+const AppleColor = () => {
+    let value = randomNumber(0,1)
+    if (value == 0 ) {
+        return "red"
+    }
+
+    else {
+        return "#7CFC00" 
+    } 
+}
+
+const food = {
+    x: randomPosisiton(),
+    y: randomPosisiton(),
+    color: AppleColor()
+}
+
 let direction, loopID
+
+const drawFood = () => {
+    const {x,y,color} = food
+    ctx.shadowColor = color
+    ctx.shadowBlur = 6
+    ctx.fillStyle = food.color
+    ctx.fillRect(food.x, food.y, size, size)
+    ctx.shadowBlur = 0
+}
 
 const drawSnake = () => {
     ctx.fillStyle = "#836FFF"
@@ -67,10 +102,10 @@ const drawGrid = () => {
 
 
 const play = () => {
-drawGrid()
 clearInterval(loopID) 
 ctx.clearRect(0, 0, 600, 600)
 drawGrid() 
+drawFood()
 moveSnake()
 drawSnake()
     loopID = setTimeout(()=> {
